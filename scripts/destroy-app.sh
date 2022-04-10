@@ -1,4 +1,4 @@
-kubectl delete -f kubernetes-ingress/common/default-server-secret.yaml
+kubectl delete -f kubernetes-ingress/tyler-dev-secret.yaml
 kubectl delete -f kubernetes-ingress/common/nginx-config.yaml
 kubectl delete -f kubernetes-ingress/rbac/rbac.yaml
 kubectl delete -f kubernetes-ingress/common/ingress-class.yaml
