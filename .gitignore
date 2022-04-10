@@ -29,3 +29,6 @@ override.tf.json
 # example: *tfplan*
 /.idea/
 /venv/
+/tylerlee.dev.crt
+/tylerlee.dev.key
+/tyler-dev-secret.yaml
