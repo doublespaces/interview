@@ -40,6 +40,8 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+          TLS_CRT: ${{ secrets.TLS_CRT }}
+          TLS_KEY: ${{ secrets.TLS_KEY }}
       - name: Create kubeconfig
         run: |
           mkdir ${HOME}/.kube
@@ -48,9 +50,8 @@ jobs:
       - name: Use context
         run: kubectl config use-context arn:aws:eks:us-west-1:378255292555:cluster/interview-eks-5dIAHBlr
       - name: Run K8s commands
-        with:
-          TLS_CRT: ${{ secrets.TLS_CRT }}
-          TLS_KEY: ${{ secrets.TLS_KEY }}
         run: |
           ls -lah
+          export TLS_CRT=${{ secrets.TLS_CRT }}
+          export TLS_KEY=${{ secrets.TLS_KEY }}
           ./scripts/deploy-app.sh
