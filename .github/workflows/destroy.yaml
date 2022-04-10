@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  destroy:
+    name: Destroy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -22,7 +23,7 @@ jobs:
           cat ${HOME}/.kube/config
       - name: Use context
         run: kubectl config use-context arn:aws:eks:us-west-1:378255292555:cluster/interview-eks-5dIAHBlr
-      - name: Run K8s commands
+      - name: Run Destroy App Script
         run: |
           ls -lah
           ./scripts/destroy-app.sh
